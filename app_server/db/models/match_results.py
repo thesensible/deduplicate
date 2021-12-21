@@ -23,3 +23,8 @@ class MatchResult(Model):
         )
 
         return query.paginate(page, per_page).execute()
+
+    @classmethod
+    def get_count_pending_matches(cls):
+        count = MatchResult.select().where(MatchResult.action.is_null()).count()
+        return count
