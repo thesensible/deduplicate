@@ -12,6 +12,17 @@ class _GetPendingMatchesParams(Schema):
     page = fields.Int(required=True)
 
 
+class GetCountPendingMatches(Resource):
+    def __init__(self):
+        super().__init__()
+
+    def get(self):
+        count = MatchResult.get_count_pending_matches()
+        return {
+            "pending_mactches": count
+        }
+
+
 class GetPendingMatches(Resource):
 
     def __init__(self):
