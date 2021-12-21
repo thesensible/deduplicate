@@ -42,3 +42,7 @@ class MatchResult(Model):
         count = MatchResult.select().where(MatchResult.action.is_null(False)).count()
         return count
 
+    @classmethod
+    def update_action(cls, match_id, action, duplicate_id):
+        query = MatchResult.update(action=action, duplicate_id=duplicate_id).where(MatchResult.id == match_id)
+        return query.execute()

@@ -3,7 +3,7 @@ from flask_restful import Api
 
 from app_server.api.resources.candidates import GetUniqueCandidates
 from app_server.api.resources.health_check import HealthCheck
-from app_server.api.resources.match_results import GetCountCompletedMatches, GetCountPendingMatches
+from app_server.api.resources.match_results import GetCountCompletedMatches, GetCountPendingMatches, TakeAction
 from app_server.api.resources.match_results import GetPendingMatches, GetCompletedMatches
 
 app = Flask(__name__)
@@ -15,6 +15,8 @@ api.add_resource(GetPendingMatches, '/matches/pending')
 api.add_resource(GetCountPendingMatches, '/matches/pending/count')
 api.add_resource(GetCompletedMatches, '/matches/completed')
 api.add_resource(GetCountCompletedMatches, '/matches/completed/count')
+api.add_resource(TakeAction, '/matches/action')
+
 
 if __name__ == "__main__":
     app.run(debug=True)

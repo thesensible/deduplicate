@@ -1,6 +1,6 @@
 from flask import request, abort
 from flask_restful import Resource
-from marshmallow import Schema, fields
+from marshmallow import Schema, fields, validate
 from playhouse.shortcuts import model_to_dict
 
 from app_server.db.models.candidates import Candidate
@@ -114,4 +114,36 @@ class GetCompletedMatches(Resource):
         return {
             "success": True,
             "completed_matches": result
+        }
+
+
+class _TakeActionParams(Schema):
+    match_id = fields.Str(required=True)
+    action = fields.Str(required=True, validate=validate.OneOf(["duplicate", "not_duplicate"]))
+    duplicate_id = fields.Str()
+
+
+class TakeAction(Resource):
+
+    def __init__(self):
+        super().__init__()
+        self.params = _TakeActionParams()
+
+    def post(self):
+        errors = self.params.validate(request.get_json(force=True))
+
+        if errors:
+            abort(400, errors)
+
+        params = self.params.load(request.get_json(force=True))
+
+        result = MatchResult.update_action(
+            match_id=params['match_id'],
+            action=params['action'],
+            duplicate_id=params.get('duplicate_id')
+        )
+
+        return {
+            "success": True,
+            "count": result
         }
