@@ -66,18 +66,19 @@ class _GetActionTakenParams(Schema):
     page = fields.Int(required=True)
 
 
-class GetCountActionTaken(Resource):
+class GetCountCompletedMatches(Resource):
     def __init__(self):
         super().__init__()
 
     def get(self):
-        count = MatchResult.get_count_action_taken()
+        count = MatchResult.get_count_completed_matches()
         return {
-            "Action Taken count": count
+            "success": True,
+            "completed_matches": count
         }
 
 
-class GetActionTaken(Resource):
+class GetCompletedMatches(Resource):
 
     def __init__(self):
         super().__init__()
@@ -91,18 +92,19 @@ class GetActionTaken(Resource):
 
         params = self.params.load(request.args)
 
-        pending_matches = MatchResult.get_action_taken(params['page'])
+        completed_matches = MatchResult.get_completed_matches(params['page'])
 
         result = []
 
-        for pending_match in pending_matches:
-            match_id = pending_match.id
-            match_probability = pending_match.match_probability
-            candidate_l = Candidate.get(Candidate.id == pending_match.candidate_id_l)
-            candidate_r = Candidate.get(Candidate.id == pending_match.candidate_id_r)
+        for completed_match in completed_matches:
+            match_id = completed_match.id
+            match_probability = completed_match.match_probability
+            candidate_l = Candidate.get(Candidate.id == completed_match.candidate_id_l)
+            candidate_r = Candidate.get(Candidate.id == completed_match.candidate_id_r)
             result.append({
                 'match_id': match_id,
                 'match_probability': match_probability,
+                'action': completed_match.action,
                 'candidates': [
                     stringify_date_field(model_to_dict(candidate_l)),
                     stringify_date_field(model_to_dict(candidate_r))
@@ -111,5 +113,5 @@ class GetActionTaken(Resource):
 
         return {
             "success": True,
-            "action_taken": result
+            "completed_matches": result
         }

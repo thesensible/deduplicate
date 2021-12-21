@@ -30,7 +30,7 @@ class MatchResult(Model):
         return count
 
     @classmethod
-    def get_action_taken(cls, page, per_page=10):
+    def get_completed_matches(cls, page, per_page=10):
         query = (
             MatchResult.select().where(MatchResult.action.is_null(False))
         )
@@ -38,7 +38,7 @@ class MatchResult(Model):
         return query.paginate(page, per_page).execute()
 
     @classmethod
-    def get_count_action_taken(cls):
+    def get_count_completed_matches(cls):
         count = MatchResult.select().where(MatchResult.action.is_null(False)).count()
         return count
 
