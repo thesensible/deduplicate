@@ -11,7 +11,7 @@ api = Api(app)
 api.add_resource(HealthCheck, '/')
 api.add_resource(GetUniqueCandidates, '/candidates/unique')
 api.add_resource(GetPendingMatches, '/matches/pending')
-api.add_resource(GetCountPendingMatches, '/matches/count')
+api.add_resource(GetCountPendingMatches, '/matches/pending/count')
 
 if __name__ == "__main__":
     app.run(debug=True)
