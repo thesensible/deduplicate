@@ -7,7 +7,8 @@ import "./index.css";
 
 export const HomeComponent = () => {
 
-    const DATA1 = [{
+    const DATA1 = [
+        {
         "match_id": "9077c926-bdc3-4caa-aca7-7074f0ed5ec5",
             "match_probability": 0.984,
             "candidates": [
