@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 import {Col,Row, Container, Card, Button} from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion'
@@ -6,7 +7,7 @@ import Accordion from 'react-bootstrap/Accordion'
 import "./index.css";
 
 export const HomeComponent = () => {
-
+    const baseURL = "http://localhost:5000/matches/pending?page=1";
     const DATA1 = [
         {
         "match_id": "9077c926-bdc3-4caa-aca7-7074f0ed5ec5",
@@ -77,12 +78,21 @@ export const HomeComponent = () => {
 
     }
 ]
+
+const [initialData, setInitialData] = useState([]);
+
+React.useEffect(() => {
+    axios.get(baseURL).then((response) => {
+        setInitialData(response.data.pending_matches);
+    });
+  }, []);
+
     return <>
 <div className="container">
   <Row>
   <Accordion defaultActiveKey="0">
 
-  {DATA1.map((item, index) =>  <Accordion.Item eventKey={index}>
+  {initialData.map((item, index) =>  <Accordion.Item eventKey={index}>
     <Accordion.Header>
         <div className="header">
        <span> {item.candidates[0].first_name} {item.candidates[0].last_name}</span>
