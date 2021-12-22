@@ -27,7 +27,7 @@ React.useEffect(() => {
         <div className="header">
        <span> {item.candidates[0].first_name} {item.candidates[0].last_name}</span>
 
-       <span>{item.match_probability * 100}  % Probability </span>
+       <span>{Math.round(item.match_probability * 100, 2)}  % Probability </span>
         </div>
     </Accordion.Header>
     <Accordion.Body>
