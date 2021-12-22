@@ -45,7 +45,13 @@ React.useEffect(() => {
         </div> 
         <div className="rowSection">
              Phone <span></span>
-        </div> 
+        </div>
+        <div className="rowSection">
+             City  <span></span>
+        </div>
+        <div className="rowSection">
+             State  <span></span>
+        </div>
         <div className="rowSection">
              Zip <span className="iconLeft"><i class="bi bi-check-circle-fill"></i></span>
         </div> 
@@ -73,7 +79,13 @@ React.useEffect(() => {
         </div> 
         <div className="rowSection">
         {item.candidates[0].phone ?? '--'}
-        </div> 
+        </div>
+        <div className="rowSection">
+        {item.candidates[0].city ?? '--'}
+        </div>
+        <div className="rowSection">
+        {item.candidates[0].state ?? '--'}
+        </div>
         <div className="rowSection">
          {item.candidates[0].zip ?? '--'}
         </div> 
@@ -109,7 +121,13 @@ React.useEffect(() => {
         </div> 
         <div className="rowSection">
         {item.candidates[1].phone ?? '--'}
-        </div> 
+        </div>
+        <div className="rowSection">
+        {item.candidates[1].city ?? '--'}
+        </div>
+        <div className="rowSection">
+        {item.candidates[1].state ?? '--'}
+        </div>
         <div className="rowSection">
          {item.candidates[1].zip ?? '--'}
         </div> 
