@@ -21,6 +21,7 @@ export const HomeComponent = () => {
     <>
       <div className="homeContainer">
         <div className="page-header">
+        Candidate profiles requiring your attention.
         </div>
         <div className="body">
           <Accordion defaultActiveKey="0">
