@@ -1,0 +1,33 @@
+/* .container {
+    background-color: gray;
+    height: 100vh;
+} */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 96%;
+}
+
+.rowSection {
+    height: 45px;
+    display: flex;
+    flex-wrap: inherit;
+}
+
+.iconLeft {
+    margin-left: 16px;
+}
+
+.accordion-body {
+    height: 500px;
+}
+
+.card-body {
+    padding: 8px 16px !important;
+}
+
+.accordion {
+    width: 100vw !important;
+}
