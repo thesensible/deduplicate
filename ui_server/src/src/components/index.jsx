@@ -115,7 +115,7 @@ export const HomeComponent = () => {
                             </Card.Text>
                             <div className="d-grid gap-2">
                               <Button variant="primary">
-                                Keep The Left Record
+                                Keep This Record
                               </Button>
                             </div>
                           </Card.Body>
@@ -164,7 +164,7 @@ export const HomeComponent = () => {
                             </Card.Text>
                             <div className="d-grid gap-2">
                               <Button variant="primary">
-                                Keep The Right Record
+                                Keep This Record
                               </Button>
                             </div>
                           </Card.Body>
