@@ -7,79 +7,9 @@ import Accordion from 'react-bootstrap/Accordion'
 import "./index.css";
 
 export const HomeComponent = () => {
-    const baseURL = "http://localhost:5000/matches/pending?page=1";
-    const DATA1 = [
-        {
-        "match_id": "9077c926-bdc3-4caa-aca7-7074f0ed5ec5",
-            "match_probability": 0.984,
-            "candidates": [
-                {
-                    "id": "0e3abcb6-283d-4b08-8478-0af897770324",
-                    "first_name": "John",
-                    "middle_name": "J.",
-                    "last_name": "Doe",
-                    "dob": null,
-                    "phone": "123-456-789",
-                    "email": "john1997@yahoo.com",
-                    "address": null,
-                    "city": "houston",
-                    "state": "tx",
-                    "zip": null
-                },
-                {
-                    "id": "14a2a946-e469-445b-ae36-4a4ca1fb0bac",
-                    "first_name": "John",
-                    "middle_name": "j.",
-                    "last_name": "Doe",
-                    "dob": null,
-                    "phone": "(123) 456 789",
-                    "email": null,
-                    "address": null,
-                    "city": "Houston",
-                    "state": "Texas",
-                    "zip": "12345",
-                    
-                }
-            ]
+    const baseURL = "http://localhost:5000/matches/pending?page=2";
 
-    },
-    {
-        "match_id": "9077c926-bdc3-4caa-aca7-7074f0ed5ec5",
-            "match_probability": 0.984,
-            "candidates": [
-                {
-                    "id": "0e3abcb6-283d-4b08-8478-0af897770324",
-                    "first_name": "John",
-                    "middle_name": "J.",
-                    "last_name": "Doe",
-                    "dob": null,
-                    "phone": "123-456-789",
-                    "email": "john1997@yahoo.com",
-                    "address": null,
-                    "city": "houston",
-                    "state": "tx",
-                    "zip": null
-                },
-                {
-                    "id": "14a2a946-e469-445b-ae36-4a4ca1fb0bac",
-                    "first_name": "John",
-                    "middle_name": "j.",
-                    "last_name": "Doe",
-                    "dob": null,
-                    "phone": "(123) 456 789",
-                    "email": null,
-                    "address": null,
-                    "city": "Houston",
-                    "state": "Texas",
-                    "zip": "12345",
-                    
-                }
-            ]
-
-    }
-]
-
-const [initialData, setInitialData] = useState([]);
+const [initialData, setInitialData] = React.useState([]);
 
 React.useEffect(() => {
     axios.get(baseURL).then((response) => {
@@ -97,7 +27,7 @@ React.useEffect(() => {
         <div className="header">
        <span> {item.candidates[0].first_name} {item.candidates[0].last_name}</span>
 
-       <span>{item.match_probability}  % Probability </span>
+       <span>{item.match_probability * 100}  % Probability </span>
         </div>
     </Accordion.Header>
     <Accordion.Body>

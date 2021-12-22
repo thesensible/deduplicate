@@ -56,10 +56,7 @@ class GetPendingMatches(Resource):
                 ]
             })
 
-        return {
-            "success": True,
-            "pending_matches": result
-        }
+        return {"success": True, "pending_matches": result}, 200, {'Access-Control-Allow-Origin': "*"}
 
 
 class _GetActionTakenParams(Schema):
