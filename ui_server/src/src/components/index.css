@@ -3,6 +3,12 @@
     height: 100vh;
 } */
 
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -21,13 +27,22 @@
 }
 
 .accordion-body {
-    height: 500px;
+    max-height: 700px;
 }
 
 .card-body {
     padding: 8px 16px !important;
 }
 
-.accordion {
-    width: 100vw !important;
+
+
+.page-header {
+    height: 45px;
+    background-color: gray;
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.body {
+    padding: 0 16px;
 }
