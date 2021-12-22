@@ -35,31 +35,34 @@ React.useEffect(() => {
   <Row>
     <Col style={{width: '200px', display:'flex', flexDirection: 'column', padding: '8px 16px'}}>
         <div className="rowSection">
-           First Name <span className="iconLeft"><i class="bi bi-check-circle-fill"></i> </span>
+           First Name
         </div> 
         <div className="rowSection">
-             Middle Name <span className="iconLeft"> <i class="bi bi-share-fill"></i> </span>
-        </div> 
-        <div className="rowSection">
-            DOB <span></span>
-        </div> 
-        <div className="rowSection">
-             Phone <span></span>
+             Middle Name
         </div>
         <div className="rowSection">
-             City  <span></span>
+             Last Name
         </div>
         <div className="rowSection">
-             State  <span></span>
+            DOB
+        </div> 
+        <div className="rowSection">
+             Phone
         </div>
         <div className="rowSection">
-             Zip <span className="iconLeft"><i class="bi bi-check-circle-fill"></i></span>
+             City
+        </div>
+        <div className="rowSection">
+             State
+        </div>
+        <div className="rowSection">
+             Zip
         </div> 
         <div className="rowSection">
-             Email  <span></span>
+             Email
         </div> 
         <div className="rowSection">
-           Address <span></span>
+           Address
         </div> 
     </Col>
     <Col > 
@@ -69,11 +72,14 @@ React.useEffect(() => {
     <Card.Text>
     <Col style={{width: '400px', display:'flex', flexDirection: 'column'}}>
         <div className="rowSection">
-            <span> {item.candidates[0].first_name} {item.candidates[0].last_name}</span>
+            <span> {item.candidates[0].first_name} </span>
         </div> 
         <div className="rowSection">
         {item.candidates[0].middle_name}
-        </div> 
+        </div>
+        <div className="rowSection">
+        {item.candidates[0].last_name}
+        </div>
         <div className="rowSection">
         {item.candidates[0].dob ?? '--'}
         </div> 
@@ -111,11 +117,14 @@ React.useEffect(() => {
     <Card.Text>
     <Col style={{width: '400px', display:'flex', flexDirection: 'column'}}>
         <div className="rowSection">
-            <span> {item.candidates[1].first_name} {item.candidates[1].last_name}</span>
-        </div> 
+            <span> {item.candidates[0].first_name} </span>
+        </div>
         <div className="rowSection">
         {item.candidates[1].middle_name}
-        </div> 
+        </div>
+        <div className="rowSection">
+        {item.candidates[1].last_name}
+        </div>
         <div className="rowSection">
         {item.candidates[1].dob ?? '--'}
         </div> 
